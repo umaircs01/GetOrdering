@@ -1,0 +1,42 @@
+{
+  "project_info": {
+    "project_number": "147925185149",
+    "firebase_url": "https://takki-restaurant-finder.firebaseio.com",
+    "project_id": "takki-restaurant-finder",
+    "storage_bucket": "takki-restaurant-finder.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:147925185149:android:e36e5988b43b4454",
+        "android_client_info": {
+          "package_name": "com.ettienetukker.restaurantapp"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "147925185149-n7uc454llrn5oo9h4fee566dnlk2hhcl.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyBHfMDHccoP_YkmkkfvanY3hBOjVUVLnc8"
+        }
+      ],
+      "services": {
+        "analytics_service": {
+          "status": 1
+        },
+        "appinvite_service": {
+          "status": 1,
+          "other_platform_oauth_client": []
+        },
+        "ads_service": {
+          "status": 2
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}

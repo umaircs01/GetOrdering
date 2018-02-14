@@ -1,0 +1,343 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:animateLayoutChanges="true"
+    android:clickable="true"
+    android:background="@color/md_white_1000"
+    android:orientation="vertical">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="?attr/actionBarSize"
+        android:gravity="center_vertical"
+        android:visibility="gone"
+        android:orientation="horizontal">
+
+        <android.support.v7.widget.AppCompatImageView
+            android:id="@+id/ivClose"
+            android:padding="12dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            app:srcCompat="@drawable/ic_close_blue_grey_700_36dp" />
+
+
+        <android.support.v7.widget.AppCompatTextView
+            style="@style/TextAppearance.AppCompat.Title"
+            android:layout_width="0dp"
+            android:layout_height="match_parent"
+            android:layout_weight="1"
+            android:gravity="end|center_vertical"
+            android:paddingRight="16dp"
+            android:text="@string/filter"
+            android:textColor="@color/md_blue_grey_800"
+            android:textStyle="normal" />
+    </LinearLayout>
+
+    <View
+        android:layout_width="match_parent"
+        android:layout_height="0.5dp"
+        android:background="@color/divider" />
+
+    <ScrollView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_weight="1">
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:animateLayoutChanges="true"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:layout_marginBottom="8dp"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Name"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:padding="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/accent"
+                        android:hint="Restaurant/Shop Name"
+                        android:textColor="@color/md_grey_900"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Distance"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <RadioGroup
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColorHint="@color/accent"
+                        android:text="&lt;5km"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/accent"
+                        android:layout_weight="1"
+                        android:text="&lt;10km"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:checked="true"
+                        android:textColorHint="@color/accent"
+                        android:text="&lt;25km"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:layout_width="0dp"
+                        android:textColorHint="@color/accent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="&gt;25km"
+                        android:textColor="@color/md_grey_800"
+                        android:textSize="16sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Address"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:padding="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:textColorHint="@color/accent"
+                        android:hint="Street/Town/Province Name"
+                        android:textColor="@color/md_grey_900"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Category"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:padding="8dp"
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Category Name"
+                        android:textColorHint="@color/accent"
+                        android:textColor="@color/md_grey_900"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Option"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:layout_width="0dp"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Restaurant" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:layout_width="0dp"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Open" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal"
+                    android:layout_marginTop="8dp"
+                    android:layout_marginBottom="8dp">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:layout_width="0dp"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Take Away" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent"
+                        android:text="Fast Food" />
+
+                </LinearLayout>
+            </LinearLayout>
+
+            <!--<android.support.v7.widget.AppCompatTextView-->
+                <!--android:id="@+id/tvFilterRating"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:layout_margin="8dp"-->
+                <!--android:background="@drawable/bg_dark_grey"-->
+                <!--android:gravity="center"-->
+                <!--android:padding="16dp"-->
+                <!--android:text="Filter By Rating"-->
+                <!--android:textColor="@color/md_white_1000"-->
+                <!--android:textSize="18sp" />-->
+
+            <!--<LinearLayout-->
+                <!--android:id="@+id/llFilterByRating"-->
+                <!--android:layout_width="match_parent"-->
+                <!--android:layout_height="wrap_content"-->
+                <!--android:orientation="vertical"-->
+                <!--android:visibility="gone">-->
+
+                <!--<android.support.v7.widget.AppCompatSeekBar-->
+                    <!--android:layout_margin="8dp"-->
+                    <!--android:textColor="@color/accent"-->
+                    <!--android:textColorHint="@color/accent"-->
+                    <!--android:layout_width="match_parent"-->
+                    <!--android:layout_height="wrap_content" />-->
+            <!--</LinearLayout>-->
+
+
+
+
+        </LinearLayout>
+
+    </ScrollView>
+
+    <android.support.v7.widget.AppCompatTextView
+        android:id="@+id/tvSearch"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="8dp"
+        android:layout_marginBottom="8dp"
+        android:layout_marginLeft="24dp"
+        android:layout_marginRight="24dp"
+        android:background="@drawable/cyan_buttton"
+        android:gravity="center"
+        android:padding="12dp"
+        android:text="Search"
+        android:textColor="@color/md_white_1000"
+        android:textSize="18sp" />
+
+</LinearLayout>

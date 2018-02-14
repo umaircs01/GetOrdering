@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/md_white_1000"
+    android:clickable="true">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Phone" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:textColor="@color/md_blue_grey_900"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:gravity="center_vertical"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:autoLink="phone"
+            android:text="+27 11 739 2150" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:textColor="@color/md_blue_grey_900"
+            android:layout_height="wrap_content"
+            android:paddingBottom="16dp"
+            android:gravity="center_vertical"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:autoLink="phone"
+            android:text="+27 72 918 2372" />
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/accent" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Large"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center"
+            android:padding="16dp"
+            android:text="Email" />
+
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingBottom="16dp"
+            android:textColor="@color/md_blue_grey_900"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:autoLink="email"
+            android:text="info@mytakki.com"/>
+        <TextView
+            style="@style/TextAppearance.AppCompat.Medium"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:gravity="center_vertical"
+            android:lineSpacingMultiplier="1.2"
+            android:paddingBottom="16dp"
+            android:textColor="@color/md_blue_grey_900"
+            android:paddingEnd="16dp"
+            android:paddingStart="16dp"
+            android:autoLink="email"
+            android:text="mytakki@gmail.com"/>
+
+    </LinearLayout>
+
+</ScrollView>

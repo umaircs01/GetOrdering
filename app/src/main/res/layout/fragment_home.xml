@@ -1,0 +1,415 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:background="@color/md_white_1000"
+    android:clickable="true"
+    android:orientation="vertical">
+
+    <android.support.v4.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <LinearLayout
+            android:id="@+id/llSearchBox"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginBottom="8dp"
+            android:layout_marginLeft="8dp"
+            android:layout_marginRight="8dp"
+            android:layout_marginTop="8dp"
+            android:animateLayoutChanges="true"
+            android:orientation="vertical">
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Name"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByName"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:hint="Restaurant/Shop Name"
+                        android:padding="16dp"
+                        android:id="@+id/etName"
+                        android:autoText="true"
+                        android:inputType="textPersonName|textAutoComplete|textAutoCorrect"
+                        android:textColor="@color/md_grey_900"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Distance"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByDistance"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal"
+                android:visibility="gone">
+
+
+                <RadioGroup
+                    android:id="@+id/rgDistance"
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbLessThan5"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="&lt;10km"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbLessThan10"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="&lt;25km"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbLessThan25"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="&lt;50km"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+
+                    <android.support.v7.widget.AppCompatRadioButton
+                        android:id="@+id/rbGreaterThan25"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="&gt;50km"
+                        android:textColor="@color/md_grey_800"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+                </RadioGroup>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Address"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByAddress"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:autoText="true"
+
+                        android:id="@+id/etState"            android:hint="Street/Town/Province Name"
+                        android:inputType="textPostalAddress|textAutoComplete|textAutoCorrect"
+                        android:padding="16dp"
+                        android:textColor="@color/md_grey_900"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Category / Item"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByCategory"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <android.support.design.widget.TextInputLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <android.support.v7.widget.AppCompatEditText
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content"
+                        android:id="@+id/etCategory"
+                        android:hint="Category / Item Name"
+                        android:padding="16dp"
+                        android:textColor="@color/md_grey_900"
+                        android:inputType="text|textAutoComplete|textAutoCorrect"
+                        android:autoText="true"
+                        android:textColorHint="@color/accent"
+                        android:textSize="16sp" />
+                </android.support.design.widget.TextInputLayout>
+            </LinearLayout>
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvFilterOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_margin="8dp"
+                android:background="@drawable/bg_dark_grey"
+                android:gravity="center"
+                android:padding="16dp"
+                android:text="Filter By Option"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/llFilterByOption"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:orientation="vertical"
+                android:visibility="gone">
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbRestaurant"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Restaurant"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbOpen"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Open"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+                </LinearLayout>
+
+                <LinearLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginTop="8dp"
+                    android:orientation="horizontal">
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                       android:id="@+id/cbTakeAway"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Take Away"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+                    <android.support.v7.widget.AppCompatCheckBox
+                        android:id="@+id/cbFastFood"
+                        android:layout_width="0dp"
+                        android:layout_height="wrap_content"
+                        android:layout_weight="1"
+                        android:text="Fast Food"
+                        android:textColor="@color/accent"
+                        android:textColorHint="@color/accent" />
+
+                </LinearLayout>
+
+
+            </LinearLayout>
+
+            <!--<android.support.v7.widget.AppCompatTextView-->
+            <!--android:id="@+id/tvFilterRating"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:background="@drawable/bg_dark_grey"-->
+            <!--android:gravity="center"-->
+            <!--android:padding="16dp"-->
+            <!--android:text="Filter By Rating"-->
+            <!--android:textColor="@color/md_white_1000"-->
+            <!--android:textSize="18sp" />-->
+
+            <!--<LinearLayout-->
+            <!--android:id="@+id/llFilterByRating"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content"-->
+            <!--android:orientation="vertical"-->
+            <!--android:visibility="gone">-->
+
+            <!--<android.support.v7.widget.AppCompatSeekBar-->
+            <!--android:layout_margin="8dp"-->
+            <!--android:textColor="@color/accent"-->
+            <!--android:textColorHint="@color/accent"-->
+            <!--android:layout_width="match_parent"-->
+            <!--android:layout_height="wrap_content" />-->
+            <!--</LinearLayout>-->
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvSearch"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="24dp"
+                android:layout_marginRight="24dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/selector_btn"
+                android:gravity="center"
+                android:padding="12dp"
+                android:elevation="3dp"
+                android:text="Search"
+                android:textColor="@color/md_white_1000"
+                android:textSize="18sp" />
+
+            <LinearLayout
+                android:id="@+id/tvSaveSearch"
+                android:layout_width="match_parent"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:layout_height="wrap_content"
+                android:orientation="horizontal">
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvSaveSearchText"
+                android:layout_width="0dp"
+                android:layout_weight="1"
+                android:layout_height="wrap_content"
+                android:background="@drawable/selector_click_rect"
+                android:drawableLeft="@drawable/ic_add_blue_grey_500_24dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="4dp"
+                android:layout_marginTop="8dp"
+                android:text="Save Search"
+                android:textColor="@color/accent"
+                android:textSize="18sp" />
+
+                <android.support.v7.widget.AppCompatTextView
+                    android:id="@+id/tvClearSearch"
+                    android:layout_width="0dp"
+                    android:layout_marginBottom="8dp"
+                    android:layout_marginLeft="4dp"
+                    android:layout_marginRight="16dp"
+                    android:layout_marginTop="8dp"
+                    android:layout_weight="1"
+                    android:layout_height="wrap_content"
+                    android:background="@drawable/rect_blue_grey_light"
+                    android:drawableLeft="@drawable/ic_settings_backup_restore_blue_grey_700_24dp"
+                    android:gravity="center"
+                    android:padding="8dp"
+                    android:text="Clear Search"
+                    android:textColor="@color/accent"
+                    android:textSize="18sp" />
+            </LinearLayout>
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvSortBy"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginBottom="8dp"
+                android:layout_marginLeft="16dp"
+                android:layout_marginRight="16dp"
+                android:layout_marginTop="8dp"
+                android:background="@drawable/rect_blue_grey_light"
+                android:drawableLeft="@drawable/ic_sort_blue_grey_500_24dp"
+                android:drawableRight="@drawable/ic_arrow_drop_down_blue_grey_500_24dp"
+                android:gravity="center"
+                android:padding="8dp"
+                android:text="Sort By"
+                android:visibility="gone"
+                tools:visibility="visible"
+                android:textColor="@color/accent"
+                android:textSize="18sp" />
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rvRestaurnats"
+                android:visibility="gone"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
+
+            <android.support.v7.widget.AppCompatTextView
+                android:id="@+id/tvNoResults"
+                android:layout_gravity="center"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:gravity="center"
+                android:padding="16dp"
+                android:visibility="gone"
+                style="@style/TextAppearance.AppCompat.Light.SearchResult.Subtitle"
+                android:text="No Search Results Found"
+                />
+
+        </LinearLayout>
+    </android.support.v4.widget.NestedScrollView>
+
+    <android.support.design.widget.FloatingActionButton
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom|end"
+        android:layout_margin="@dimen/fab_margin"
+        android:visibility="gone"
+        app:srcCompat="@drawable/ic_filter_list_white_36dp" />
+
+</LinearLayout>

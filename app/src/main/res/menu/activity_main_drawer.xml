@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_home"
+            android:icon="@drawable/ic_home_white_24dp"
+            android:title="Home" />
+        <item
+            android:id="@+id/nav_location_settings"
+            android:icon="@drawable/ic_my_location_white_24dp"
+            android:title="Location Settings" />
+
+        <item
+            android:id="@+id/nav_terms"
+            android:icon="@drawable/ic_security_white_24dp"
+            android:title="Terms &amp; Conditions" />
+        <item
+            android:id="@+id/nav_website"
+            android:icon="@drawable/ic_chrome_reader_mode_white_24dp"
+            android:title="Website" />
+        <item
+            android:id="@+id/nav_history"
+            android:icon="@drawable/ic_history_white_24dp"
+            android:title="Search History" />
+        <item
+            android:id="@+id/nav_favourite"
+            android:icon="@drawable/ic_playlist_add_check_black_24dp"
+            android:title="Favourites" />
+        <item
+            android:id="@+id/nav_contact"
+            android:icon="@drawable/ic_email_black_24dp"
+            android:title="Contact Us" />
+        <item
+            android:id="@+id/nav_copyrights"
+            android:icon="@drawable/ic_copyright_black_24dp"
+            android:title="Copyrights" />
+        <item
+            android:id="@+id/nav_faq"
+            android:icon="@drawable/ic_help_black_24dp"
+            android:title="FAQ" />
+    </group>
+
+
+</menu>
