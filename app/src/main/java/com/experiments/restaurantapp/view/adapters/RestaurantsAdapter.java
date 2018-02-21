@@ -13,15 +13,23 @@ import android.widget.Space;
 
 import com.bumptech.glide.Glide;
 import com.experiments.restaurantapp.R;
+import com.experiments.restaurantapp.RestaurantApp;
+import com.experiments.restaurantapp.model.GsonDeserializeExclusion;
 import com.experiments.restaurantapp.model.PlaceInfo;
+import com.experiments.restaurantapp.model.pojo.Favourite;
 import com.experiments.restaurantapp.model.pojo.Location;
 import com.experiments.restaurantapp.model.pojo.RestaurantData;
 import com.experiments.restaurantapp.model.pojo.WorkInfo;
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import java.util.List;
 
 import butterknife.BindView;
 import butterknife.ButterKnife;
+import io.realm.RealmResults;
+
+import static com.experiments.restaurantapp.RestaurantApp.realm;
 
 
 /**
@@ -51,7 +59,7 @@ public class RestaurantsAdapter extends BaseRecyclerAdapter<RestaurantData, Rest
     }
 
     @Override
-    protected void bind(final ViewHolder holder, final RestaurantData model, int position) {
+    protected void bind(final ViewHolder holder, final RestaurantData model, final int position) {
         Glide.with(getContext())
                 .load(model.getImageUrl())
                 .placeholder(R.mipmap.ic_launcher)
@@ -90,7 +98,12 @@ public class RestaurantsAdapter extends BaseRecyclerAdapter<RestaurantData, Rest
         holder.tvType.setText(TextUtils.join(" | ", model.getBusinessType()));
         holder.tvCuisine.setText(model.getFoodType());
         holder.tvName.setText(model.getTradingName());
-
+        if(model.isFavourite()){
+            holder.favIcon.setImageResource(R.drawable.ic_fav);
+        }
+        else {
+            holder.favIcon.setImageResource(R.drawable.ic_fav_hollow);
+        }
 
         holder.tvType.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -150,18 +163,39 @@ public class RestaurantsAdapter extends BaseRecyclerAdapter<RestaurantData, Rest
         holder.favIcon.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                if(holder.flag)
+                if(!model.isFavourite())
                 {
-                    holder.flag = true;
                     holder.favIcon.setImageResource(R.drawable.ic_fav);
+                    addToFavourites(model);
                 }
                 else {
-                    holder.flag = false;
                     holder.favIcon.setImageResource(R.drawable.ic_fav_hollow);
+                    removeFavourite(model);
                 }
             }
         });
 
+    }
+
+    private void addToFavourites(RestaurantData data){
+        realm.beginTransaction();
+        data.setFavourite(true);
+        Favourite model = realm.createObject(Favourite.class);
+        model.setId(data.getRestaurantId());
+        model.setFavObject(new Gson().toJson(data));
+        realm.commitTransaction();
+        notifyDataSetChanged();
+    }
+
+    private void removeFavourite(RestaurantData data){
+        data.setFavourite(false);
+        realm.beginTransaction();
+        RealmResults<Favourite> model = realm.where(Favourite.class).equalTo("Id",data.getRestaurantId()).findAll();
+        if(!model.isEmpty()) {
+            model.get(0).removeFromRealm();
+        }
+        realm.commitTransaction();
+        notifyDataSetChanged();
     }
 
     public void setCurrentPlace(@Nullable PlaceInfo currentPlace) {

@@ -8,6 +8,9 @@ import com.orm.dsl.Table;
 import java.text.NumberFormat;
 import java.util.List;
 
+import io.realm.RealmObject;
+import io.realm.annotations.Required;
+
 /**
  * Created by Experiments on 05-Apr-17.
  */
@@ -15,7 +18,7 @@ import java.util.List;
 public class RestaurantData {
 
     @Ignore
-    private final NumberFormat numberFormat;
+    private transient final NumberFormat numberFormat;
 
     @SerializedName("id")
     @Expose
@@ -68,11 +71,12 @@ public class RestaurantData {
     @Expose
     private Pagination pagination;
     private float distance;
-
+    private boolean isFavourite;
 
     public RestaurantData() {
         numberFormat = NumberFormat.getNumberInstance();
         numberFormat.setMaximumFractionDigits(1);
+        isFavourite = false;
     }
 
     public String getMenuUrl() {
@@ -188,6 +192,13 @@ public class RestaurantData {
         this.meals = meals;
     }
 
+    public boolean isFavourite() {
+        return isFavourite;
+    }
+
+    public void setFavourite(boolean favourite) {
+        isFavourite = favourite;
+    }
 
     public int getViews() {
         return views;

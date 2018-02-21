@@ -35,6 +35,7 @@ import com.experiments.restaurantapp.model.pojo.Address;
 import com.experiments.restaurantapp.model.pojo.BusinessType;
 import com.experiments.restaurantapp.model.pojo.Category;
 import com.experiments.restaurantapp.model.pojo.Distance;
+import com.experiments.restaurantapp.model.pojo.Favourite;
 import com.experiments.restaurantapp.model.pojo.GetRestaurantsRequest;
 import com.experiments.restaurantapp.model.pojo.GetRestaurantsResponse;
 import com.experiments.restaurantapp.model.pojo.Location;
@@ -65,12 +66,14 @@ import java.util.Locale;
 
 import butterknife.BindView;
 import butterknife.OnClick;
+import io.realm.RealmResults;
 import retrofit2.Call;
 import retrofit2.Callback;
 import retrofit2.Response;
 
 import static android.view.View.GONE;
 import static android.view.View.VISIBLE;
+import static com.experiments.restaurantapp.RestaurantApp.realm;
 
 /**
  * Created by Experiments on 29-Mar-17.
@@ -126,7 +129,7 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
     AppCompatCheckBox cbOpen;
     @BindView(R.id.cbTakeAway)
     AppCompatCheckBox cbTakeAway;
-    @BindView(R.id.cbFastFood)
+    @BindView(R.id.cbCasualdining)
     AppCompatCheckBox cbFastFood;
     @BindView(R.id.tvNoResults)
     AppCompatTextView tvNoResult;
@@ -416,6 +419,7 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
                 List<RestaurantData> apiData = restaurantsResponse.getData();
                 List<RestaurantData> adapterModels = adapter.getModels();
                 sortItems(apiData);
+                setFavourites(apiData);
                 adapterModels.clear();
                 adapterModels.addAll(apiData);
                 adapter.notifyDataSetChanged();
@@ -432,6 +436,21 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
                 activity.showMessage(getString(R.string.unknow_error));
             }
         });
+    }
+
+    private void setFavourites(List<RestaurantData> data){
+        realm.beginTransaction();
+        RealmResults<Favourite> model = realm.where(Favourite.class).findAll();
+        if(!model.isEmpty()) {
+            for(int i = 0; i < data.size(); i++){
+                for(int y = 0; y < model.size(); y++){
+                    if(data.get(i).getRestaurantId().equalsIgnoreCase(model.get(i).getId())){
+                        data.get(i).setFavourite(true);
+                    }
+                }
+            }
+        }
+        realm.commitTransaction();
     }
 
     @Override

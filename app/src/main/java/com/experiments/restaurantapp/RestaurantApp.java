@@ -7,6 +7,7 @@ import com.experiments.restaurantapp.helper.ErrorReporter;
 import com.facebook.stetho.Stetho;
 import com.orm.SugarApp;
 
+import io.realm.Realm;
 import timber.log.Timber;
 
 /**
@@ -15,6 +16,7 @@ import timber.log.Timber;
 public class RestaurantApp extends SugarApp {
 
     private static RestaurantApp instance;
+    public static Realm realm;
 
     public static Context getInstance() {
         return instance;
@@ -24,6 +26,7 @@ public class RestaurantApp extends SugarApp {
     public void onCreate() {
         super.onCreate();
         instance = this;
+        realm = Realm.getInstance(getBaseContext());
         Timber.Tree logObservingTree = new Timber.Tree() {
             @Override
             protected void log(int priority, String tag, String message, Throwable t) {
