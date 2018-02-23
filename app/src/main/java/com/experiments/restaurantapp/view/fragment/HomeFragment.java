@@ -123,14 +123,38 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
     AppCompatEditText etState;
     @BindView(R.id.etCategory)
     AppCompatEditText etCategory;
-    @BindView(R.id.cbRestaurant)
-    AppCompatCheckBox cbRestaurant;
-    @BindView(R.id.cbOpen)
-    AppCompatCheckBox cbOpen;
+    @BindView(R.id.cbCoffeeshop)
+    AppCompatCheckBox cbCoffeeShop;
+    @BindView(R.id.cbCasualdining)
+    AppCompatCheckBox cbCasualDining;
+    @BindView(R.id.cbFineDining)
+    AppCompatCheckBox cbFineDining;
     @BindView(R.id.cbTakeAway)
     AppCompatCheckBox cbTakeAway;
-    @BindView(R.id.cbCasualdining)
-    AppCompatCheckBox cbFastFood;
+    @BindView(R.id.cbPubnBar)
+    AppCompatCheckBox cbPubAndBar;
+    @BindView(R.id.cbOpen)
+    AppCompatCheckBox cbOpen;
+    @BindView(R.id.cbLiveEntertainment)
+    AppCompatCheckBox cbLiveEntertainment;
+    @BindView(R.id.cbKidsFriendly)
+    AppCompatCheckBox cbKidsFriendly;
+    @BindView(R.id.cbPlayArea)
+    AppCompatCheckBox cbPlayArea;
+    @BindView(R.id.cbOutsideArea)
+    AppCompatCheckBox cbOutsideArea;
+    @BindView(R.id.cbCocktailbar)
+    AppCompatCheckBox cbCocktailbar;
+    @BindView(R.id.cbLounge)
+    AppCompatCheckBox cbLounge;
+    @BindView(R.id.cbLivesport)
+    AppCompatCheckBox cbLivesport;
+    @BindView(R.id.cbGambling)
+    AppCompatCheckBox cbGambling;
+    @BindView(R.id.cbPetfriendly)
+    AppCompatCheckBox cbPetfriendly;
+    @BindView(R.id.cbWifi)
+    AppCompatCheckBox cbWifi;
     @BindView(R.id.tvNoResults)
     AppCompatTextView tvNoResult;
     @BindView(R.id.tvSaveSearch)
@@ -249,12 +273,12 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
         List<BusinessType> businessTypes = SugarRecord.findWithQuery(BusinessType.class, "SELECT * FROM BUSINESS_TYPE WHERE REQUEST_ID = ? ", String.valueOf(searchRequest.getId()));
 
         if (businessTypes != null && !businessTypes.isEmpty()) {
-            if (businessTypes.toString().equals(cbFastFood.getText().toString())) {
-                cbFastFood.setChecked(true);
-            }
-            if (businessTypes.toString().equals(cbRestaurant.getText().toString())) {
-                cbRestaurant.setChecked(true);
-            }
+//            if (businessTypes.toString().equals(cbFastFood.getText().toString())) {
+//                cbFastFood.setChecked(true);
+//            }
+//            if (businessTypes.toString().equals(cbRestaurant.getText().toString())) {
+//                cbRestaurant.setChecked(true);
+//            }
             llFilterByOption.setVisibility(VISIBLE);
         }
         cbOpen.setChecked(searchRequest.isOpen());
@@ -770,11 +794,53 @@ public class HomeFragment extends BaseFragment implements RestaurantsAdapter.Res
 
         if (llFilterByOption.getVisibility() == VISIBLE) {
             List<String> businessTypes = new ArrayList<>();
-            if (cbFastFood.isChecked()) {
-                businessTypes.add(cbFastFood.getText().toString());
+            if (cbCasualDining.isChecked()) {
+                businessTypes.add(cbCasualDining.getText().toString());
             }
-            if (cbRestaurant.isChecked()) {
-                businessTypes.add(cbRestaurant.getText().toString());
+            if (cbCocktailbar.isChecked()) {
+                businessTypes.add(cbCocktailbar.getText().toString());
+            }
+            if (cbCoffeeShop.isChecked()) {
+                businessTypes.add(cbCoffeeShop.getText().toString());
+            }
+            if (cbFineDining.isChecked()) {
+                businessTypes.add(cbFineDining.getText().toString());
+            }
+            if (cbGambling.isChecked()) {
+                businessTypes.add(cbGambling.getText().toString());
+            }
+            if (cbKidsFriendly.isChecked()) {
+                businessTypes.add(cbKidsFriendly.getText().toString());
+            }
+            if (cbLiveEntertainment.isChecked()) {
+                businessTypes.add(cbLiveEntertainment.getText().toString());
+            }
+            if (cbLivesport.isChecked()) {
+                businessTypes.add(cbLivesport.getText().toString());
+            }
+            if (cbLounge.isChecked()) {
+                businessTypes.add(cbLounge.getText().toString());
+            }
+            if (cbOpen.isChecked()) {
+                businessTypes.add(cbOpen.getText().toString());
+            }
+            if (cbOutsideArea.isChecked()) {
+                businessTypes.add(cbOutsideArea.getText().toString());
+            }
+            if (cbPetfriendly.isChecked()) {
+                businessTypes.add(cbPetfriendly.getText().toString());
+            }
+            if (cbPlayArea.isChecked()) {
+                businessTypes.add(cbPlayArea.getText().toString());
+            }
+            if (cbPubAndBar.isChecked()) {
+                businessTypes.add(cbPubAndBar.getText().toString());
+            }
+            if (cbTakeAway.isChecked()) {
+                businessTypes.add(cbTakeAway.getText().toString());
+            }
+            if (cbWifi.isChecked()) {
+                businessTypes.add(cbWifi.getText().toString());
             }
             mSearchRequest.setBusinessTypes(businessTypes);
 
