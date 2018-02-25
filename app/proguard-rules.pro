@@ -25,7 +25,7 @@
 #-renamesourcefileattribute SourceFile
 
 -keep class com.experiments.restaurantapp.model.**{*;}
-
+-ignorewarnings
 # Okio
 -keep class sun.misc.Unsafe { *; }
 -dontwarn java.nio.file.*

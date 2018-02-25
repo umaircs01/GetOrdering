@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.experiments.restaurantapp">
+    package="com.dev.androidapp">
 
     <uses-permission android:name="android.permission.INTERNET" />
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
@@ -13,14 +13,14 @@
         android:required="true" />
 
     <application
-        android:name=".RestaurantApp"
+        android:name="com.dev.androidapp.RestaurantApp"
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
         android:supportsRtl="false"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".view.activities.SplashActivity"
+            android:name="com.dev.androidapp.view.activities.SplashActivity"
             android:screenOrientation="portrait"
             android:theme="@style/SplashTheme"
             android:windowSoftInputMode="stateAlwaysHidden">
@@ -31,12 +31,12 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".view.activities.IntroActivity"
+            android:name="com.dev.androidapp.view.activities.IntroActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
             android:windowSoftInputMode="stateAlwaysHidden" />
         <activity
-            android:name=".view.activities.MainActivity"
+            android:name="com.dev.androidapp.view.activities.MainActivity"
             android:label="@string/title_activity_main"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
@@ -50,25 +50,17 @@
         <meta-data
             android:name="com.google.android.geo.API_KEY"
             android:value="@string/google_maps_key" />
-        <meta-data
-            android:name="DATABASE"
-            android:value="takki.db" />
-        <meta-data
-            android:name="VERSION"
-            android:value="4" />
-        <meta-data
-            android:name="QUERY_LOG"
-            android:value="true" />
+
         <meta-data
             android:name="DOMAIN_PACKAGE_NAME"
             android:value="com.experiments.restaurantapp.model.pojo" />
 
         <activity
-            android:name=".view.activities.MapsActivity"
+            android:name="com.dev.androidapp.view.activities.MapsActivity"
             android:label="@string/title_activity_maps">
             <meta-data
                 android:name="android.support.PARENT_ACTIVITY"
-                android:value="com.experiments.restaurantapp.view.activities.MainActivity" />
+                android:value="com.dev.androidapp.view.activities.MainActivity" />
         </activity>
     </application>
 

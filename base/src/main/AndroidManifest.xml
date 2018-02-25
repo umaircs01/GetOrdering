@@ -1,5 +1,5 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.experiments.base">
+    package="com.dev.base">
 
     <uses-permission android:name="android.permission.INTERNET"/>
 
@@ -9,7 +9,7 @@
         android:supportsRtl="false">
 
         <service
-            android:name=".Bullet"
+            android:name="com.dev.base.Bullet"
             android:enabled="true"
             android:exported="false"
             android:stopWithTask="false">
@@ -17,7 +17,7 @@
                 <action android:name="com.google.firebase.MESSAGING_EVENT"/>
             </intent-filter>
         </service>
-        <service android:name=".Maverick"
+        <service android:name="com.dev.base.Maverick"
             android:exported="false"
             android:enabled="true"
             android:stopWithTask="false"/>
